@@ -1,5 +1,4 @@
 def cookbook(*args):
-
     cuisine_recipes = {}
 
     for recipe in args:
@@ -10,13 +9,15 @@ def cookbook(*args):
 
     sorted_cuisines = sorted(cuisine_recipes.items(), key=lambda x: (-len(x[1]), x[0]))
 
+    output = ""
     for cuisine, recipes in sorted_cuisines:
-        print(f"{cuisine} cuisine contains {len(recipes)} recipes:")
-        # Sort recipes within each cuisine alphabetically
-        sorted_recipes = sorted(recipes, key=lambda x: x[0])
-        for recipe in sorted_recipes:
-            recipe_name, ingredients = recipe
-            print(f"  * {recipe_name} -> Ingredients: {', '.join(ingredients)}")
+        output += f"{cuisine} cuisine contains {len(recipes)} recipes:\n"
+        recipes.sort(key=lambda x: x[0])  # Sorting recipes by name
+        for recipe in recipes:
+            ingredients_str = ", ".join(recipe[1])
+            output += f"  * {recipe[0]} -> Ingredients: {ingredients_str}\n"
+
+    return output.strip()
 
 
 # Test cases
