@@ -23,9 +23,10 @@ def eat(money, price):
 
         elif first_money > first_price:
             pocket += first_money - first_price
-            price_increase = input_moneys.pop() + pocket
-            input_moneys.append(price_increase)
-            input_foods.append(first_price)
+            if input_moneys:
+                price_increase = input_moneys.pop() + pocket
+                input_moneys.append(price_increase)
+                input_foods.append(first_price)
             pocket = 0
             eat_foods += 1
 
