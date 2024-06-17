@@ -10,7 +10,6 @@ def list_manipulator(some_list, command, side, *args):
     return some_list
 
 
-
 print(list_manipulator([1, 2, 3], "remove", "end"))
 print(list_manipulator([1, 2, 3], "remove", "beginning"))
 print(list_manipulator([1, 2, 3], "add", "beginning", 20))
